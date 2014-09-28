@@ -47,7 +47,7 @@ qAtemCmd::qAtemCmd(QUrlQuery quer,QAtemConnection *atemC,QObject *parent) :
     if (query.hasQueryItem("input")) {
         m_input = query.queryItemValue("input").toInt();
     }
-    qDebug() << "Action: " << m_action << " | Input: " << m_input << " | Delay: " << m_delay;
+    qDebug() << "ATEM: " << atemConnection->getHostAddress().toString() << " | Action: " << m_action << " | Input: " << m_input << " | Delay: " << m_delay;
 }
 
 void qAtemCmd::execute() {

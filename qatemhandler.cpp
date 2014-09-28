@@ -81,6 +81,10 @@ void qAtemHandler::handleConnect() {
 
 void qAtemHandler::handleError(QString error) {
     qDebug() << error;
+    if (error == "The switcher connection timed out") {
+        ((QAtemConnection*)sender())->connectToSwitcher(((QAtemConnection*)sender())->getHostAddress());
+        qDebug() << "Reconnecting to ATEM (" << ((QAtemConnection*)sender())->getHostAddress().toString() << ")";
+    }
 }
 
 void qAtemHandler::addToQueue(QString atemName, QUrlQuery query) {
